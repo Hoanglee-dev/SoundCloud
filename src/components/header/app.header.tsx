@@ -18,6 +18,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import Container from "@mui/material/Container";
 import { Avatar } from "@mui/material";
+import Link from "next/link";
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -100,8 +101,19 @@ export default function AppHeader() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem>
+        <Link
+          href={"/profile"}
+          style={{ color: "unset", textDecoration: "none" }}
+        >
+          Profile
+        </Link>
+      </MenuItem>
+      <MenuItem>
+        <Link href={"/"} style={{ color: "unset", textDecoration: "none" }}>
+          Logout
+        </Link>
+      </MenuItem>
     </Menu>
   );
 
@@ -166,9 +178,15 @@ export default function AppHeader() {
               variant="h6"
               noWrap
               component="div"
-              sx={{ display: { xs: "none", sm: "block" } }}
+              sx={{
+                display: { xs: "none", sm: "block" },
+                ">a": {
+                  color: "unset",
+                  textDecoration: "none",
+                },
+              }}
             >
-              SoundCloud
+              <Link href={"/"}>SoundCloud</Link>
             </Typography>
             <Search>
               <SearchIconWrapper>
@@ -186,11 +204,15 @@ export default function AppHeader() {
                 gap: "20px",
                 alignItems: "center",
                 cursor: "pointer",
+                "> a": {
+                  color: "unset",
+                  textDecoration: "none",
+                },
               }}
             >
-              <span>Playlist</span>
-              <span>Like</span>
-              <span>Upload</span>
+              <Link href={"/playlist"}>Playlist</Link>
+              <Link href={"/like"}>Like</Link>
+              <Link href={"/"}>Upload</Link>
               <Avatar onClick={handleProfileMenuOpen}>H</Avatar>
             </Box>
             <Box sx={{ display: { xs: "flex", md: "none" } }}>
