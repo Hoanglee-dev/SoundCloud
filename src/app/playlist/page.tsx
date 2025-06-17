@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 const PlaylistPage = () => {
-  return (
-    <div>PlaylistPage</div>
-  )
-}
+  console.log(">>> check BE play plist", process.env.NEXT_PUBLIC_BACKEND_URL);
 
-export default PlaylistPage
+  return <div>PlaylistPage</div>;
+};
+
+export default PlaylistPage;
