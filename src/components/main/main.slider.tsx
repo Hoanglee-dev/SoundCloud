@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Box, Button, Hidden } from "@mui/material";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
+import Link from "next/link";
 
 interface IProps {
   data: ITrackTop[];
@@ -54,7 +55,6 @@ const PrevArrow = (props: any) => {
 };
 const MainSlider = (props: IProps) => {
   const { data, title } = props;
-  console.log("🚀 ~ MainSlider ~ data:", data);
   let settings: Settings = {
     infinite: true,
     speed: 500,
@@ -90,8 +90,10 @@ const MainSlider = (props: IProps) => {
               srcSet={`${process.env.NEXT_PUBLIC_BACKEND_URL}/images/${track.imgUrl}`}
               alt=""
             />
-            <h4>{track.title}</h4>
-            <h3 className="item-track">{track.description}</h3>
+            <Link href={`/track/${track._id}?audio=${track.trackUrl}`}>
+              <h4>{track.title}</h4>
+            </Link>
+            <h5 className="item-track">{track.description}</h5>
           </div>
         ))}
       </Slider>
