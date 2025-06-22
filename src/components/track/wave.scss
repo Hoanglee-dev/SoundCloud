@@ -2,13 +2,13 @@
       cursor: pointer;
       position: relative;
       &:hover {
-        #hover {
+        .hover {
 
           opacity: 1;
         }
       }
     }
-    #hover {
+    .hover {
       position: absolute;
       left: 0;
       top: 0;

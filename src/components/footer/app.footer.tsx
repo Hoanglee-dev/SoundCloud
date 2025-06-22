@@ -16,7 +16,7 @@ const AppFooter = () => {
         <Container sx={{ display: "flex", gap: "10px" }}>
           <AudioPlayer
             autoPlay
-            src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/tracks/hoidanit.mp3`}
+            // src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/tracks/hoidanit.mp3`}
             onPlay={(e) => console.log("onPlay")}
             style={{
               boxShadow: "unset",
